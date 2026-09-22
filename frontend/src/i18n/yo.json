@@ -1,0 +1,96 @@
+{
+  "appName": "Imole Aye nipase Oro Olorun",
+  "tagline": "Imole fun aye nipase Oro Olorun.",
+  "getStarted": "Bere",
+  "onboarding": {
+    "welcomeReadAloud": "Kaabo si Imole Aye. Danu bo si Bere lati tesiwaju.",
+    "talkbackTitle": "Mu TalkBack sise",
+    "talkbackBody": "Ohun elo yii n sise dara julo pelu ka-oju ipe sise. O le mu TalkBack sise ninu eto foonu re nigbakugba.",
+    "talkbackReadAloud": "Iboju yii n fi bi a se n mu TalkBack sise han. O le fo eyi ni asiko kankan.",
+    "skip": "Fo",
+    "next": "Tesiwaju",
+    "languageTitle": "Yan ede re",
+    "languageReadAloud": "Yan ede re. Hausa, Yoruba, Igbo, tabi Geesi.",
+    "confirm": "Jerisi"
+  },
+  "languages": {
+    "ha": "Hausa",
+    "yo": "Yoruba",
+    "ig": "Igbo",
+    "en": "Geesi"
+  },
+  "home": {
+    "offlineReadingIn": "Ko si lori ayelujara, n ka ni {{language}}",
+    "onlineReadingIn": "Lori ayelujara, n ka ni {{language}}",
+    "nowPlaying": "N ka bayii: {{book}} orí {{chapter}}",
+    "progress": "Ilosiwaju: idapo {{percent}}",
+    "previousChapter": "Orí to koja",
+    "nextChapter": "Orí to n bo",
+    "pauseReading": "Da kika duro",
+    "resumeReading": "Tesiwaju kika",
+    "tapToSpeak": "Danu bo lati fun ni ase",
+    "listening": "N gbo...",
+    "bookmarkThisVerse": "Fi ese yii pamo",
+    "goToABook": "Lo si iwe kan",
+    "openSettings": "Si eto",
+    "readingSpeed": "Iyara kika, bayii ni {{speed}} igba",
+    "bookmarked": "A ti fi {{book}} orí {{chapter}} ese {{verse}} pamo"
+  },
+  "navigate": {
+    "title": "Lilo",
+    "searchPlaceholder": "So oruko iwe tabi ko o si ibi yii",
+    "searchLabel": "Wa awon iwe ati ese",
+    "hintText": "Gbiyanju so \"Si Johannu orí 3\"",
+    "oldTestament": "Majemu Laelae, iwe 39",
+    "newTestament": "Majemu Titun, iwe 27",
+    "chapters": "orí {{count}}"
+  },
+  "bookmarks": {
+    "title": "Awon ese re ti a fi pamo",
+    "empty": "Ko si ese ti a fi pamo sibe. So fi ese yii pamo nigba ti o n ka lati fi apakan kan pamo.",
+    "savedOnDevice": "A fi pamo sinu ero",
+    "syncedToAccount": "A ti so mo akaunti re",
+    "deletePrompt": "Pa nkan ti a fi pamo {{number}} re?",
+    "deleted": "A ti pa nkan ti a fi pamo re"
+  },
+  "settings": {
+    "title": "Eto",
+    "account": "Akaunti",
+    "signIn": "Wole",
+    "signInSubtitle": "So awon nkan pamo ati ilosiwaju re",
+    "language": "Ede",
+    "audioDisplay": "Ohun ati wiwo",
+    "readingSpeed": "Iyara kika",
+    "fontSize": "Iwon lẹta",
+    "autoPlayChapters": "Fi ara re sere orí",
+    "darkMode": "Ipo dudu",
+    "about": "Nipa",
+    "version": "Ẹya",
+    "offlineStatus": "Ipo aisi ayelujara"
+  },
+  "explain": {
+    "title": "Salaye ese yii",
+    "loading": "N gba alaye, jowo duro.",
+    "error": "A ko le gba alaye bayii. Jowo gbiyanju lekan si nigba ti o ba wa lori ayelujara.",
+    "offlineNotice": "Alaye ese nilo ayelujara."
+  },
+  "voice": {
+    "unknownCommand": "Ma binu, mi o gbo. So 'iranlowo' lati gbo ohun ti o le so.",
+    "help": "O le so bi: Si Johannu orí 3. Orí to n bo. Da duro. Fi eyi pamo. Se akojo gbogbo iwe.",
+    "bookNotFound": "Mi o ri iwe {{query}}. Se o n so {{suggestion}}?",
+    "chapterOutOfRange": "{{book}} ni orí {{max}} nikan. Jowo yan orí laarin 1 si {{max}}.",
+    "verseOutOfRange": "Orí yii ni ese {{max}} nikan.",
+    "paused": "O ti da duro.",
+    "resumed": "N tesiwaju kika.",
+    "stopped": "O ti duro.",
+    "speedChanged": "A ti seto iyara kika si {{speed}} igba.",
+    "listAllBooksIntro": "Iwe 66 wa ninu Bibeli.",
+    "chapterCountAnswer": "{{book}} ni orí {{count}}."
+  },
+  "tabs": {
+    "home": "Ile",
+    "navigate": "Lilo",
+    "bookmarks": "Fipamọ",
+    "settings": "Eto"
+  }
+}

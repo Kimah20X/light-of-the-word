@@ -1,0 +1,96 @@
+{
+  "appName": "Haske ga Duniya ta wurin Kalmar Allah",
+  "tagline": "Haske ga duniya ta wurin Kalmar Allah.",
+  "getStarted": "Fara",
+  "onboarding": {
+    "welcomeReadAloud": "Barka da zuwa Haske ga Duniya ta wurin Kalmar Allah. Danna Fara don ci gaba.",
+    "talkbackTitle": "Kunna TalkBack",
+    "talkbackBody": "Aikace-aikacen yana aiki mafi kyau idan an kunna na'urar karanta allo. Za ka iya kunna TalkBack a cikin saitunan wayarka a kowane lokaci.",
+    "talkbackReadAloud": "Wannan shafi yana nuna yadda ake kunna TalkBack. Za ka iya tsallakewa a kowane lokaci.",
+    "skip": "Tsallake",
+    "next": "Na gaba",
+    "languageTitle": "Zabi harshenka",
+    "languageReadAloud": "Zabi harshenka. Hausa, Yoruba, Igbo, ko Turanci.",
+    "confirm": "Tabbatar"
+  },
+  "languages": {
+    "ha": "Hausa",
+    "yo": "Yoruba",
+    "ig": "Igbo",
+    "en": "Turanci"
+  },
+  "home": {
+    "offlineReadingIn": "Ba kan layi ba, ana karatu cikin {{language}}",
+    "onlineReadingIn": "Kan layi, ana karatu cikin {{language}}",
+    "nowPlaying": "Ana karantawa yanzu: {{book}} sura {{chapter}}",
+    "progress": "Ci gaba: kashi {{percent}} cikin dari",
+    "previousChapter": "Surar da ta gabata",
+    "nextChapter": "Sura ta gaba",
+    "pauseReading": "Dakatar da karatu",
+    "resumeReading": "Ci gaba da karatu",
+    "tapToSpeak": "Danna don yin magana da umarni",
+    "listening": "Ana sauraro...",
+    "bookmarkThisVerse": "Ajiye wannan aya",
+    "goToABook": "Je zuwa wani littafi",
+    "openSettings": "Bude saitunan",
+    "readingSpeed": "Saurin karatu, yanzu {{speed}} sau",
+    "bookmarked": "An ajiye {{book}} sura {{chapter}} aya {{verse}}"
+  },
+  "navigate": {
+    "title": "Kewayawa",
+    "searchPlaceholder": "Fadi sunan littafi ko rubuta a nan",
+    "searchLabel": "Nemo littattafai da ayoyi",
+    "hintText": "Gwada cewa \"Bude Yuhanna sura 3\"",
+    "oldTestament": "Tsohon Alkawari, littattafai 39",
+    "newTestament": "Sabon Alkawari, littattafai 27",
+    "chapters": "surori {{count}}"
+  },
+  "bookmarks": {
+    "title": "Ayoyin da aka ajiye",
+    "empty": "Babu wanda aka ajiye tukuna. Ka ce ajiye wannan aya yayin karatu don adana wani sashi.",
+    "savedOnDevice": "An ajiye a wayar",
+    "syncedToAccount": "An daidaita zuwa asusunka",
+    "deletePrompt": "Share abin ajiyewa {{number}}?",
+    "deleted": "An share abin ajiyewa"
+  },
+  "settings": {
+    "title": "Saitunan",
+    "account": "Asusu",
+    "signIn": "Shiga",
+    "signInSubtitle": "Daidaita abubuwan ajiyewa da ci gabanka",
+    "language": "Harshe",
+    "audioDisplay": "Sauti da nuni",
+    "readingSpeed": "Saurin karatu",
+    "fontSize": "Girman rubutu",
+    "autoPlayChapters": "Kunna surori kai tsaye",
+    "darkMode": "Yanayin duhu",
+    "about": "Game da",
+    "version": "Sigar",
+    "offlineStatus": "Matsayin rashin layi"
+  },
+  "explain": {
+    "title": "Bayyana wannan aya",
+    "loading": "Ana samun bayani, don Allah a jira.",
+    "error": "Ba a iya samun bayani a yanzu ba. Da fatan za a sake gwadawa idan kana kan layi.",
+    "offlineNotice": "Bayanin aya yana bukatar hade da intanet."
+  },
+  "voice": {
+    "unknownCommand": "Yi hakuri, ban gane ba. Ce 'taimako' don jin abin da za ka iya fada.",
+    "help": "Za ka iya cewa: Bude Yuhanna sura 3. Sura ta gaba. Dakata. Ajiye wannan. Lissafa dukkan littattafai.",
+    "bookNotFound": "Ban sami littafin {{query}} ba. Shin kana nufin {{suggestion}}?",
+    "chapterOutOfRange": "{{book}} yana da surori {{max}} ne kawai. Da fatan za a zabi sura tsakanin 1 zuwa {{max}}.",
+    "verseOutOfRange": "Wannan sura tana da ayoyi {{max}} ne kawai.",
+    "paused": "An dakatar.",
+    "resumed": "Ana ci gaba da karatu.",
+    "stopped": "An tsaya.",
+    "speedChanged": "An sanya saurin karatu sau {{speed}}.",
+    "listAllBooksIntro": "Akwai littattafai 66 a cikin Littafi Mai Tsarki.",
+    "chapterCountAnswer": "{{book}} yana da surori {{count}}."
+  },
+  "tabs": {
+    "home": "Gida",
+    "navigate": "Kewayawa",
+    "bookmarks": "Ajiye",
+    "settings": "Saituna"
+  }
+}

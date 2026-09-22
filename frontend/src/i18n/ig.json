@@ -1,0 +1,96 @@
+{
+  "appName": "Ìhè Ụwa Site Na Okwu Chineke",
+  "tagline": "Ìhè nye ụwa site na Okwu Chineke.",
+  "getStarted": "Malite",
+  "onboarding": {
+    "welcomeReadAloud": "Nnọọ na Ìhè Ụwa. Pịa Malite iji gaa n'ihu.",
+    "talkbackTitle": "Gbanye TalkBack",
+    "talkbackBody": "Ngwa a na-arụ ọrụ kacha mma mgbe TalkBack gbanyere. Ị nwere ike ịgbanye TalkBack na ntọala ekwentị gị mgbe ọ bụla.",
+    "talkbackReadAloud": "Ihu nkanka a na-egosi otu esi agbanye TalkBack. Ị nwere ike ịwụfe mgbe ọ bụla.",
+    "skip": "Wụfe",
+    "next": "Ọzọ",
+    "languageTitle": "Họrọ asụsụ gị",
+    "languageReadAloud": "Họrọ asụsụ gị. Hausa, Yoruba, Igbo, ma ọ bụ Bekee.",
+    "confirm": "Kwado"
+  },
+  "languages": {
+    "ha": "Hausa",
+    "yo": "Yoruba",
+    "ig": "Igbo",
+    "en": "Bekee"
+  },
+  "home": {
+    "offlineReadingIn": "Anọghị n'ịntanetị, na-agụ n'asụsụ {{language}}",
+    "onlineReadingIn": "Nọ n'ịntanetị, na-agụ n'asụsụ {{language}}",
+    "nowPlaying": "Na-agụ ugbu a: {{book}} isi {{chapter}}",
+    "progress": "Ọganihu: pasent {{percent}}",
+    "previousChapter": "Isi gara aga",
+    "nextChapter": "Isi ọzọ",
+    "pauseReading": "Kwụsị ọgụgụ",
+    "resumeReading": "Malite ọgụgụ ọzọ",
+    "tapToSpeak": "Pịa iji kwuo iwu",
+    "listening": "Na-ege ntị...",
+    "bookmarkThisVerse": "Chekwaa amaokwu a",
+    "goToABook": "Gaa n'akwụkwọ",
+    "openSettings": "Mepee ntọala",
+    "readingSpeed": "Ọsọ ọgụgụ, ugbu a bụ {{speed}} ugboro",
+    "bookmarked": "Echekwara {{book}} isi {{chapter}} amaokwu {{verse}}"
+  },
+  "navigate": {
+    "title": "Nyofee",
+    "searchPlaceholder": "Kwuo aha akwụkwọ ma ọ bụ dee ebe a",
+    "searchLabel": "Chọọ akwụkwọ na amaokwu",
+    "hintText": "Gbalịa ikwu \"Mepee Jọn isi nke 3\"",
+    "oldTestament": "Agba Ochie, akwụkwọ 39",
+    "newTestament": "Agba Ọhụrụ, akwụkwọ 27",
+    "chapters": "isi {{count}}"
+  },
+  "bookmarks": {
+    "title": "Amaokwu echekwara",
+    "empty": "Ọ dịbeghị ihe echekwara. Kwuo chekwaa amaokwu a mgbe ị na-agụ iji chekwaa akụkụ.",
+    "savedOnDevice": "Echekwara na ngwaọrụ",
+    "syncedToAccount": "Ejikọtara na akaụntụ gị",
+    "deletePrompt": "Hichapụ ihe echekwara {{number}}?",
+    "deleted": "Ehichapụla ihe echekwara"
+  },
+  "settings": {
+    "title": "Ntọala",
+    "account": "Akaụntụ",
+    "signIn": "Banye",
+    "signInSubtitle": "Jikọta ihe ichekwa gị na ọganihu gị",
+    "language": "Asụsụ",
+    "audioDisplay": "Ụda na ngosipụta",
+    "readingSpeed": "Ọsọ ọgụgụ",
+    "fontSize": "Nha mkpụrụedemede",
+    "autoPlayChapters": "Kpalie isi n'onwe ya",
+    "darkMode": "Ọnọdụ ọchịchịrị",
+    "about": "Gbasara",
+    "version": "Ụdị",
+    "offlineStatus": "Ọnọdụ ịntanetị"
+  },
+  "explain": {
+    "title": "Kọwaa amaokwu a",
+    "loading": "Na-enweta nkọwa, biko chere.",
+    "error": "Enweghị ike inweta nkọwa ugbu a. Biko gbalịa ọzọ mgbe ị nọ n'ịntanetị.",
+    "offlineNotice": "Nkọwa amaokwu chọrọ ijikọ ịntanetị."
+  },
+  "voice": {
+    "unknownCommand": "Ndo, aghọtaghị m. Kwuo 'enyemaka' ka ị nụ ihe ị nwere ike ikwu.",
+    "help": "Ị nwere ike ikwu dị ka: Mepee Jọn isi nke 3. Isi ọzọ. Kwụsị. Chekwaa nke a. Depụta akwụkwọ niile.",
+    "bookNotFound": "Achọtaghị m akwụkwọ {{query}}. Ị pụtara {{suggestion}}?",
+    "chapterOutOfRange": "{{book}} nwere naanị isi {{max}}. Biko họrọ isi n'etiti 1 na {{max}}.",
+    "verseOutOfRange": "Isi a nwere naanị amaokwu {{max}}.",
+    "paused": "Akwụsịla.",
+    "resumed": "Na-amalite ọgụgụ ọzọ.",
+    "stopped": "Akwụsịla.",
+    "speedChanged": "Edobela ọsọ ọgụgụ ka ọ bụrụ {{speed}} ugboro.",
+    "listAllBooksIntro": "E nwere akwụkwọ 66 na Baịbụl.",
+    "chapterCountAnswer": "{{book}} nwere isi {{count}}."
+  },
+  "tabs": {
+    "home": "Ụlọ",
+    "navigate": "Nyofee",
+    "bookmarks": "Chekwaa",
+    "settings": "Ntọala"
+  }
+}

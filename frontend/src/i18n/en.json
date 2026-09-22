@@ -1,0 +1,96 @@
+{
+  "appName": "Light of the Word",
+  "tagline": "Light for the world through the Word of God.",
+  "getStarted": "Get started",
+  "onboarding": {
+    "welcomeReadAloud": "Welcome to Light of the Word. Light for the world, through the Word of God. Tap Get Started to continue.",
+    "talkbackTitle": "Turn on TalkBack",
+    "talkbackBody": "Light of the Word works best with your screen reader turned on. You can enable TalkBack in your phone's accessibility settings at any time.",
+    "talkbackReadAloud": "This screen shows you how to turn on TalkBack. You can skip this step at any time.",
+    "skip": "Skip",
+    "next": "Next",
+    "languageTitle": "Choose your language",
+    "languageReadAloud": "Choose your language. Hausa, Yoruba, Igbo, or English.",
+    "confirm": "Confirm"
+  },
+  "languages": {
+    "ha": "Hausa",
+    "yo": "Yoruba",
+    "ig": "Igbo",
+    "en": "English"
+  },
+  "home": {
+    "offlineReadingIn": "Offline, reading in {{language}}",
+    "onlineReadingIn": "Online, reading in {{language}}",
+    "nowPlaying": "Now playing: {{book}} chapter {{chapter}}",
+    "progress": "Progress: {{percent}} percent",
+    "previousChapter": "Previous chapter",
+    "nextChapter": "Next chapter",
+    "pauseReading": "Pause reading",
+    "resumeReading": "Resume reading",
+    "tapToSpeak": "Tap to speak a command",
+    "listening": "Listening...",
+    "bookmarkThisVerse": "Bookmark this verse",
+    "goToABook": "Go to a book",
+    "openSettings": "Open settings",
+    "readingSpeed": "Reading speed, currently {{speed}} times",
+    "bookmarked": "Bookmarked {{book}} chapter {{chapter}} verse {{verse}}"
+  },
+  "navigate": {
+    "title": "Navigate",
+    "searchPlaceholder": "Say a book name or type here",
+    "searchLabel": "Search books and verses",
+    "hintText": "Try saying \"Open John chapter 3\"",
+    "oldTestament": "Old Testament, 39 books",
+    "newTestament": "New Testament, 27 books",
+    "chapters": "{{count}} chapters"
+  },
+  "bookmarks": {
+    "title": "Your bookmarks",
+    "empty": "No bookmarks yet. Say bookmark this verse while reading to save a passage.",
+    "savedOnDevice": "Bookmarks saved to device",
+    "syncedToAccount": "Bookmarks synced to your account",
+    "deletePrompt": "Delete bookmark {{number}}?",
+    "deleted": "Bookmark deleted"
+  },
+  "settings": {
+    "title": "Settings",
+    "account": "Account",
+    "signIn": "Sign in",
+    "signInSubtitle": "Sync your bookmarks and progress",
+    "language": "Language",
+    "audioDisplay": "Audio and display",
+    "readingSpeed": "Reading speed",
+    "fontSize": "Font size",
+    "autoPlayChapters": "Auto-play chapters",
+    "darkMode": "Dark mode",
+    "about": "About",
+    "version": "Version",
+    "offlineStatus": "Offline status"
+  },
+  "explain": {
+    "title": "Explain this verse",
+    "loading": "Getting an explanation, please wait.",
+    "error": "Could not get an explanation right now. Please try again when you're online.",
+    "offlineNotice": "Verse explanation needs an internet connection."
+  },
+  "voice": {
+    "unknownCommand": "Sorry, I didn't understand that. Say 'help' to hear what you can say.",
+    "help": "You can say things like: Open John chapter 3. Next chapter. Pause. Bookmark this. List all books.",
+    "bookNotFound": "I couldn't find a book called {{query}}. Did you mean {{suggestion}}?",
+    "chapterOutOfRange": "{{book}} only has {{max}} chapters. Please choose a chapter between 1 and {{max}}.",
+    "verseOutOfRange": "That chapter only has {{max}} verses.",
+    "paused": "Paused.",
+    "resumed": "Resuming reading.",
+    "stopped": "Stopped.",
+    "speedChanged": "Reading speed set to {{speed}} times.",
+    "listAllBooksIntro": "There are 66 books in the Bible.",
+    "chapterCountAnswer": "{{book}} has {{count}} chapters."
+  },
+  "tabs": {
+    "home": "Home",
+    "navigate": "Navigate",
+    "bookmarks": "Bookmark",
+    "settings": "Settings"
+  }
+}

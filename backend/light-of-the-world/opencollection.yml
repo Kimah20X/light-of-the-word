@@ -1,0 +1,10 @@
+opencollection: 1.0.0
+
+info:
+  name: light-of-the-world
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
