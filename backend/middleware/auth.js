@@ -1,4 +1,5 @@
-const {verify} = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+
 /**
  * verifies the Bearer JWT issued at login. Routes that work
  * fine for offline/anonymous users (none of the core reading features need
@@ -14,7 +15,7 @@ function requireAuth(req, res, next) {
   }
 
   try {
-    const payload = verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = payload.sub;
     next();
   } catch (err) {
@@ -22,4 +23,4 @@ function requireAuth(req, res, next) {
   }
 }
 
-export default { requireAuth };
+module.exports = { requireAuth };

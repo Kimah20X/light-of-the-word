@@ -1,6 +1,6 @@
 const express = require('express');
 const Bookmark = require('../models/Bookmark');
-const { requireAuth } = require('../middleware/auth').default;
+const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 router.use(requireAuth);
