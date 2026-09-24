@@ -5,7 +5,6 @@ const cors = require('cors');
 
 const authRoutes = require('./routes/auth');
 const bookmarksRoutes = require('./routes/bookmarks');
-const explainRoutes = require('./routes/explain');
 
 const app = express();
 
@@ -15,7 +14,7 @@ app.use(express.json({ limit: '256kb' }));
 // Base URL- https://lightoftheword-api.railway.app/api/v1
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/bookmarks', bookmarksRoutes);
-app.use('/api/v1/explain', explainRoutes);
+
 
 app.get('/api/v1/health', (req, res) => {
   res.json({ status: 'ok', mongoConnected: mongoose.connection.readyState === 1 });
