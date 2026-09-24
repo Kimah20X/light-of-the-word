@@ -6,15 +6,16 @@ import { getTheme, MIN_TOUCH_TARGET } from '../theme/colors';
 import { t, SUPPORTED_LANGUAGES } from '../i18n';
 
 /**
- * Section 4.1: Onboarding — 3 screens, first launch only.
- * Screen 1: Welcome. Screen 2: TalkBack guide (skippable, never a gate).
+ * Onboarding — 3 screens, first launch only.
+ * Screen 1: Welcome. 
+ * Screen 2: TalkBack guide (skippable, never a gate).
  * Screen 3: Language select, default Hausa.
  */
 export default function OnboardingScreen({ navigation }) {
   const { theme, language, setLanguage, completeOnboarding } = useAppState();
   const colors = getTheme(theme);
   const [step, setStep] = useState(0);
-  const [selectedLang, setSelectedLang] = useState(language || 'ha');
+  const [selectedLang, setSelectedLang] = useState(language || 'en');
 
   useEffect(() => {
     if (step === 0) Speech.speak(t(selectedLang, 'onboarding.welcomeReadAloud'));

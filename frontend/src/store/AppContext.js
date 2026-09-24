@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
 
 /**
- * Section 10: store/ — Context API state.
+ * Store/ — Context API state.
  * Single global store for: language, theme, reading position, speed,
  * bookmarks, and online/offline status. Persists to AsyncStorage so
  * offline-only users keep their data with no account (section 8 note).
@@ -24,16 +24,18 @@ const STORAGE_KEYS = {
 };
 
 const DEFAULTS = {
-  language: 'ha', // spec: Hausa is default for first-time users
+  language: 'en', // spec: English is default for first-time users
   theme: 'dark',
   fontSize: 'medium',
   autoPlay: false,
   speed: 1.0,
-  position: { bookId: 'romans', chapter: 6 },
+  position: { bookId: 'romans', chapter: 6, verse: null },
   bookmarks: [],
   onboarded: false,
   authToken: null,
   isOnline: true,
+  isPlaying: false,
+currentVerse: null,
 };
 
 export function AppProvider({ children }) {
@@ -126,6 +128,20 @@ export function AppProvider({ children }) {
     persist('authToken', token);
   }, [persist]);
 
+  const setIsPlaying = useCallback((isPlaying) => {
+  setState((prev) => ({
+    ...prev,
+    isPlaying,
+  }));
+}, []);
+
+const setCurrentVerse = useCallback((currentVerse) => {
+  setState((prev) => ({
+    ...prev,
+    currentVerse,
+  }));
+}, []);
+
   const value = useMemo(() => ({
     ...state,
     hydrated,
@@ -139,7 +155,9 @@ export function AppProvider({ children }) {
     deleteBookmark,
     completeOnboarding,
     setAuthToken,
-  }), [state, hydrated, setLanguage, setTheme, setFontSize, setAutoPlay, setSpeed, setPosition, addBookmark, deleteBookmark, completeOnboarding, setAuthToken]);
+    setIsPlaying,
+    setCurrentVerse,
+  }), [state, hydrated, setLanguage, setTheme, setFontSize, setAutoPlay, setSpeed, setPosition, addBookmark, deleteBookmark, completeOnboarding, setAuthToken, setIsPlaying, setCurrentVerse]);
 
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;
 }

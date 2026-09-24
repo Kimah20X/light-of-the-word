@@ -1,7 +1,10 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { View, Text, Pressable, StyleSheet, SafeAreaView } from 'react-native';
 import Slider from '@react-native-community/slider';
-import Voice from '@react-native-voice/voice';
+import {
+  ExpoSpeechRecognitionModule,
+  useSpeechRecognitionEvent,
+} from 'expo-speech-recognition';
 import { useAppState } from '../store/AppContext';
 import { getTheme, fontSizes, MIN_TOUCH_TARGET } from '../theme/colors';
 import { t } from '../i18n';
@@ -15,7 +18,7 @@ import VerseDisplay from '../components/VerseDisplay';
 import VoiceButton from '../components/VoiceButton';
 
 /**
- * Section 4.2: Home / Player screen — the screen the user lands on every
+ * Home / Player screen — the screen the user lands on every
  * time they open the app. DOM order below matches the spec's TalkBack focus
  * order exactly: status bar -> now playing -> verse display -> progress bar
  * -> playback controls -> voice button -> action row -> speed control.
@@ -36,30 +39,43 @@ export default function HomeScreen({ navigation }) {
   const progressPercent = Math.round((position.chapter / chapterCount) * 100);
 
   // --- Voice recognition wiring (@react-native-voice/voice) ---
-  useEffect(() => {
-    Voice.onSpeechResults = (e) => {
-      const transcript = e.value && e.value[0];
-      if (transcript) handleVoiceCommand(transcript);
-      setIsListening(false);
-    };
-    Voice.onSpeechError = () => setIsListening(false);
-    return () => {
-      Voice.destroy().then(Voice.removeAllListeners);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [position, isPlaying]);
+ useSpeechRecognitionEvent('result', (event) => {
+  const transcript = event.results?.[0]?.transcript;
 
+  if (transcript) {
+    handleVoiceCommand(transcript);
+  }
+
+  setIsListening(false);
+});
+
+useSpeechRecognitionEvent('error', () => {
+  setIsListening(false);
+});
+
+useSpeechRecognitionEvent('end', () => {
+  setIsListening(false);
+});
   const startListening = useCallback(async () => {
-    try {
-      setIsListening(true);
-      speakImmediate(t(language, 'home.listening'), language);
-      const locale = { en: 'en-US', ha: 'ha-NG', yo: 'yo-NG', ig: 'ig-NG' }[language] || 'en-US';
-      await Voice.start(locale);
-    } catch (err) {
-      setIsListening(false);
-    }
-  }, [language]);
+  try {
+    setIsListening(true);
 
+    speakImmediate(t(language, 'home.listening'), language);
+
+    const locale =
+      { en: 'en-US', ha: 'ha-NG', yo: 'yo-NG', ig: 'ig-NG' }[language] || 'en-US';
+
+    await ExpoSpeechRecognitionModule.requestPermissionsAsync();
+
+    ExpoSpeechRecognitionModule.start({
+      lang: locale,
+      interimResults: false,
+      continuous: false,
+    });
+  } catch (err) {
+    setIsListening(false);
+  }
+}, [language]);
   function announce(message) {
     setLastAnnouncement(message);
     speakImmediate(message, language);
@@ -139,9 +155,6 @@ export default function HomeScreen({ navigation }) {
         } else {
           navigation.navigate('Navigate', { filterScope: intent.scope });
         }
-        return;
-      case 'explain':
-        navigation.navigate('Explain', { bookId: position.bookId, chapter: position.chapter, verse: activeVerseNumber });
         return;
       case 'help':
         announce(t(language, 'voice.help'));

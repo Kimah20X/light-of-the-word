@@ -14,17 +14,24 @@
       }
     },
     "android": {
-      "permissions": ["RECORD_AUDIO", "INTERNET"],
+      "permissions": [
+        "RECORD_AUDIO",
+        "INTERNET"
+      ],
       "package": "com.lightoftheword.app"
     },
-    "plugins": [
-      [
-        "@react-native-voice/voice",
-        {
-          "microphonePermission": "Allow Light of the Word to access your microphone for voice commands.",
-          "speechRecognitionPermission": "Allow Light of the Word to use speech recognition for voice commands."
-        }
+   "plugins": [
+  [
+    "expo-speech-recognition",
+    {
+      "microphonePermission": "Allow Light of the Word to use your microphone.",
+      "speechRecognitionPermission": "Allow Light of the Word to recognize your voice.",
+      "androidSpeechServicePackages": [
+        "com.google.android.googlequicksearchbox"
       ]
-    ]
+    }
+  ],
+  "expo-font"
+]
   }
 }

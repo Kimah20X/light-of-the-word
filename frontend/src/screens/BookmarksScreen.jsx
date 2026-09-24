@@ -6,7 +6,7 @@ import { t } from '../i18n';
 import { getBookDisplayName } from '../engine/bookLookup';
 
 /**
- * Section 4.4: Bookmarks screen.
+ * Bookmarks screen.
  */
 export default function BookmarksScreen({ navigation }) {
   const { theme, language, bookmarks, deleteBookmark, isOnline, authToken } = useAppState();

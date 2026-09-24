@@ -1,10 +1,23 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
+
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AppProvider, useAppState } from './src/store/AppContext';
+
+import { Ionicons } from '@expo/vector-icons';
+
+import {
+  AppProvider,
+  useAppState,
+} from './src/store/AppContext';
+
 import { getTheme } from './src/theme/colors';
 import { t } from './src/i18n';
 
@@ -13,53 +26,197 @@ import HomeScreen from './src/screens/HomeScreen';
 import NavigateScreen from './src/screens/NavigateScreen';
 import BookmarksScreen from './src/screens/BookmarksScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
-import ExplainScreen from './src/screens/ExplainScreen';
+import VoiceCommandScreen from './src/screens/VoiceCommandScreen';
+import VoiceFloatingButton from './src/components/FloatingVoiceButton';
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const TAB_ICONS = { Home: '\u{1F3E0}', Navigate: '\u{1F9ED}', Bookmarks: '\u{1F516}', Settings: '\u2699\uFE0F' };
+/**
+ * Simple, non-emoji navigation icons.
+ *
+ * Active = filled icon
+ * Inactive = outline icon
+ */
+const TAB_ICONS = {
+  Home: {
+    active: 'home',
+    inactive: 'home-outline',
+  },
+
+  Navigate: {
+    active: 'compass',
+    inactive: 'compass-outline',
+  },
+
+  Bookmarks: {
+    active: 'bookmark',
+    inactive: 'bookmark-outline',
+  },
+
+  Settings: {
+    active: 'settings',
+    inactive: 'settings-outline',
+  },
+};
+
 
 /**
- * The four main screens (Home, Navigate, Bookmarks, Settings) share the
- * persistent bottom tab bar shown in every mockup. Onboarding and the
- * Explain screen sit outside the tabs, in the root stack.
+ * Wrapper around the bottom tabs.
+ *
+ * The VoiceFloatingButton sits above the navigator,
+ * meaning it remains visible while moving between:
+ *
+ * Home
+ * Navigate
+ * Bookmarks
+ * Settings
  */
 function MainTabs() {
   const { theme, language } = useAppState();
   const colors = getTheme(theme);
 
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarActiveTintColor: colors.teal,
-        tabBarInactiveTintColor: colors.textMuted,
-        tabBarStyle: { backgroundColor: colors.surface, borderTopColor: colors.border },
-        tabBarLabel: t(language, `tabs.${route.name.toLowerCase()}`) !== `tabs.${route.name.toLowerCase()}`
-          ? t(language, `tabs.${route.name.toLowerCase()}`)
-          : route.name,
-        tabBarIcon: () => <Text style={{ fontSize: 20 }}>{TAB_ICONS[route.name]}</Text>,
-      })}
-    >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Navigate" component={NavigateScreen} />
-      <Tab.Screen name="Bookmarks" component={BookmarksScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
+    <View style={{ flex: 1 }}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          /*
+           * We are using our own screen headers for now.
+           */
+          headerShown: false,
+
+          /*
+           * Bottom navigation colors
+           */
+          tabBarActiveTintColor: colors.teal,
+          tabBarInactiveTintColor: colors.textMuted,
+
+          /*
+           * Bottom navigation container
+           */
+          tabBarStyle: {
+            height: 72,
+            paddingBottom: 8,
+            paddingTop: 8,
+
+            backgroundColor: colors.surface,
+            borderTopColor: colors.border,
+          },
+
+          /*
+           * Navigation labels
+           */
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: '600',
+          },
+
+          /*
+           * Translation support
+           */
+          tabBarLabel:
+            t(
+              language,
+              `tabs.${route.name.toLowerCase()}`
+            ) !== `tabs.${route.name.toLowerCase()}`
+              ? t(
+                  language,
+                  `tabs.${route.name.toLowerCase()}`
+                )
+              : route.name,
+
+          /*
+           * Simple Ionicons instead of emoji.
+           */
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={
+                focused
+                  ? TAB_ICONS[route.name].active
+                  : TAB_ICONS[route.name].inactive
+              }
+              size={24}
+              color={color}
+            />
+          ),
+        })}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+        />
+
+        <Tab.Screen
+          name="Navigate"
+          component={NavigateScreen}
+        />
+
+        <Tab.Screen
+          name="Bookmarks"
+          component={BookmarksScreen}
+        />
+
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+        />
+      </Tab.Navigator>
+
+      {/*
+       * CONSTANT FLOATING VOICE BUTTON
+       *
+       * This is outside the Tab.Navigator,
+       * so it stays visible when changing tabs.
+       */}
+      <VoiceFloatingButton />
+    </View>
   );
 }
 
+const Stack = createNativeStackNavigator();
+
+/**
+ * Root navigation
+ *
+ * Onboarding
+ *     ↓
+ * Main
+ *     ↓
+ * ├── Home
+ * ├── Navigate
+ * ├── Bookmarks
+ * └── Settings
+ *
+ * VoiceCommand is available from the floating voice button.
+ */
 function RootNavigator() {
-  const { hydrated, onboarded, theme } = useAppState();
+  const {
+    hydrated,
+    onboarded,
+    theme,
+  } = useAppState();
+
   const colors = getTheme(theme);
 
-  if (!hydrated) return null; // could render a splash screen here
+  /*
+   * Wait until AsyncStorage has loaded.
+   */
+  if (!hydrated) {
+    return null;
+  }
 
+  /*
+   * React Navigation theme
+   */
   const navTheme = {
-    ...(theme === 'dark' ? DarkTheme : DefaultTheme),
+    ...(theme === 'dark'
+      ? DarkTheme
+      : DefaultTheme),
+
     colors: {
-      ...(theme === 'dark' ? DarkTheme.colors : DefaultTheme.colors),
+      ...(theme === 'dark'
+        ? DarkTheme.colors
+        : DefaultTheme.colors),
+
       background: colors.background,
       card: colors.surface,
       text: colors.textPrimary,
@@ -71,21 +228,54 @@ function RootNavigator() {
   return (
     <NavigationContainer theme={navTheme}>
       <Stack.Navigator
-        initialRouteName={onboarded ? 'Main' : 'Onboarding'}
-        screenOptions={{ headerShown: false }}
+        initialRouteName={
+          onboarded
+            ? 'Main'
+            : 'Onboarding'
+        }
+        screenOptions={{
+          headerShown: false,
+
+          contentStyle: {
+            backgroundColor: colors.background,
+          },
+        }}
       >
-        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-        <Stack.Screen name="Main" component={MainTabs} />
-        <Stack.Screen name="Explain" component={ExplainScreen} options={{ headerShown: true, title: 'Explain' }} />
+
+        {/* First-time user screen */}
+        <Stack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
+        />
+
+        {/* Main application */}
+        <Stack.Screen
+          name="Main"
+          component={MainTabs}
+        />
+
+        {/* Full voice-command interface */}
+        <Stack.Screen
+          name="VoiceCommand"
+          component={VoiceCommandScreen}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
+
+/**
+ * Application entry point
+ */
 export default function App() {
   return (
     <AppProvider>
-      <StatusBar style="light" />
+      <StatusBar
+        style="light"
+      />
+
       <RootNavigator />
     </AppProvider>
   );

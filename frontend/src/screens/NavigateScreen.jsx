@@ -9,7 +9,7 @@ import { fuzzyMatchBook } from '../engine/commandParser';
 import VoiceButton from '../components/VoiceButton';
 
 /**
- * Section 4.3: Navigate screen.
+ * Navigate screen.
  * Search bar -> Old Testament section (2-col grid) -> New Testament section
  * (2-col grid) -> tapping a book opens its chapter list.
  */

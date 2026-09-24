@@ -108,10 +108,7 @@ export function parseCommand(transcript) {
     return { type: 'unknown', reason: 'bookNotFound', query: chapterCountMatch[1], suggestion: match ? match.suggestion : null };
   }
 
-  // 5. Explain
-  const explainMatch = text.match(/^(explain|what does this mean|explain this verse)$/);
-  if (explainMatch) return { type: 'explain' };
-
+  
   // 6. Navigate — "open genesis 1:1", "go to john chapter 3", "open romans"
   const openMatch = text.match(/^(?:open|go to|read|navigate to)\s+(.+)$/);
   if (openMatch) {
